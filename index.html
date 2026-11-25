@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>袁茹兰 · 语言与内容服务</title>
+<style>
+  :root{
+    --bg:#faf8f5;
+    --ink:#111111;
+    --sub:#6b6b6b;
+    --line:#e2ded8;
+    --accent:#8a7550;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,"Helvetica Neue","PingFang SC","Songti SC",sans-serif;
+    font-size:16px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 32px;}
+
+  /* 顶部 */
+  header{
+    position:sticky;top:0;z-index:10;
+    background:rgba(250,248,245,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;justify-content:space-between;align-items:center;
+    height:64px;
+  }
+  .brand{font-size:14px;letter-spacing:.18em;text-transform:uppercase;}
+  .lang-btn{
+    border:1px solid var(--ink);background:transparent;color:var(--ink);
+    padding:6px 14px;font-size:12px;letter-spacing:.12em;
+    cursor:pointer;border-radius:2px;transition:.25s;
+  }
+  .lang-btn:hover{background:var(--ink);color:var(--bg);}
+
+  /* 主视觉 */
+  .hero{padding:120px 0 96px;}
+  .hero .eyebrow{
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:28px;
+  }
+  .hero h1{
+    font-family:"Songti SC",Georgia,serif;
+    font-size:clamp(38px,6vw,62px);
+    line-height:1.15;
+    font-weight:400;
+    letter-spacing:-.01em;
+    margin-bottom:32px;
+  }
+  .hero p{
+    max-width:560px;color:var(--sub);font-size:17px;
+  }
+  .hero .divider{
+    width:56px;height:1px;background:var(--accent);margin:48px 0 0;
+  }
+
+  /* 区块 */
+  section{padding:88px 0;border-top:1px solid var(--line);}
+  .label{
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:40px;
+  }
+
+  /* 服务 */
+  .item{
+    display:flex;gap:32px;padding:32px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .item:last-child{border-bottom:none;}
+  .num{
+    font-family:Georgia,serif;font-size:13px;color:var(--accent);
+    padding-top:4px;min-width:32px;
+  }
+  .item h3{
+    font-size:19px;font-weight:500;margin-bottom:10px;
+    letter-spacing:.01em;
+  }
+  .item p{color:var(--sub);font-size:15px;max-width:560px;}
+
+  /* 两栏信息 */
+  .grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px 64px;
+  }
+  .cell h4{
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--sub);margin-bottom:12px;font-weight:400;
+  }
+  .cell p{font-size:16px;}
+
+  /* 流程 */
+  .steps{list-style:none;}
+  .steps li{
+    display:flex;gap:24px;padding:20px 0;
+    border-bottom:1px solid var(--line);font-size:16px;
+  }
+  .steps li:last-child{border-bottom:none;}
+  .steps span{
+    font-family:Georgia,serif;color:var(--accent);font-size:13px;
+    min-width:24px;padding-top:4px;
+  }
+
+  /* 联系 */
+  .contact{text-align:center;padding:112px 0;}
+  .contact h2{
+    font-family:"Songti SC",Georgia,serif;
+    font-size:clamp(26px,4vw,38px);font-weight:400;margin-bottom:20px;
+  }
+  .contact p{color:var(--sub);margin-bottom:36px;}
+  .mail{
+    display:inline-block;
+    border:1px solid var(--ink);
+    padding:14px 34px;font-size:14px;letter-spacing:.1em;
+    color:var(--ink);text-decoration:none;transition:.25s;
+  }
+  .mail:hover{background:var(--ink);color:var(--bg);}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0;font-size:12px;color:var(--sub);
+    display:flex;justify-content:space-between;
+  }
+
+  @media (max-width:640px){
+    .wrap{padding:0 22px;}
+    .hero{padding:80px 0 64px;}
+    section{padding:64px 0;}
+    .grid{grid-template-columns:1fr;gap:36px;}
+    .item{gap:18px;}
+    footer{flex-direction:column;gap:8px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Rulan Yuan</div>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
+</header>
+
+<main>
+  <!-- 主视觉 -->
+  <div class="wrap hero">
+    <div class="eyebrow" data-zh="语言与内容服务" data-en="Language &amp; Content Services">语言与内容服务</div>
+    <h1 data-zh="把中文，准确地交给机器。" data-en="Chinese, delivered to machines with precision.">把中文，准确地交给机器。</h1>
+    <p data-zh="为海外平台与团队提供中文内容标注、语音转写与内容审核服务。语言是我的专业，判断力是我的产品。"
+       data-en="I provide Chinese content annotation, speech transcription and content review for international platforms and teams. Language is my training; judgment is what I deliver.">
+      为海外平台与团队提供中文内容标注、语音转写与内容审核服务。语言是我的专业，判断力是我的产品。
+    </p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 服务 -->
+  <section>
+    <div class="wrap">
+      <div class="label" data-zh="服务" data-en="Services">服务</div>
+
+      <div class="item">
+        <div class="num">01</div>
+        <div>
+          <h3 data-zh="中文内容标注" data-en="Chinese Content Annotation">中文内容标注</h3>
+          <p data-zh="按任务指南对文本、图片与搜索结果进行标注与分类。遵守规范优先于主观判断，交付前逐条核对。"
+             data-en="Annotating and classifying text, images and search results according to project guidelines. Guideline compliance precedes personal judgment; every batch is checked before delivery.">
+            按任务指南对文本、图片与搜索结果进行标注与分类。遵守规范优先于主观判断，交付前逐条核对。</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="num">02</div>
+        <div>
+          <h3 data-zh="语音转写与评估" data-en="Speech Transcription &amp; Evaluation">语音转写与评估</h3>
+          <p data-zh="中文语音逐句转写，并对语音识别结果在准确度、音质与对话流畅度上给出评分与依据。普通话标准，可处理方言。"
+             data-en="Sentence-level transcription of Mandarin audio, with scored evaluation of ASR output on accuracy, audio quality and conversational fluency. Standard Mandarin; regional dialects available.">
+            中文语音逐句转写，并对语音识别结果在准确度、音质与对话流畅度上给出评分与依据。普通话标准，可处理方言。</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="num">03</div>
+        <div>
+          <h3 data-zh="AI 回答评估" data-en="AI Response Evaluation">AI 回答评估</h3>
+          <p data-zh="对模型生成的回答进行对比与打分，并以书面理由说明依据：事实错误、答非所问、冗余，或给出更优示范答案。"
+             data-en="Comparative rating of model-generated responses, with written rationale: factual errors, irrelevance, verbosity, or a better reference answer where required.">
+            对模型生成的回答进行对比与打分，并以书面理由说明依据：事实错误、答非所问、冗余，或给出更优示范答案。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 背景 -->
+  <section>
+    <div class="wrap">
+      <div class="label" data-zh="背景" data-en="Background">背景</div>
+      <div class="grid">
+        <div class="cell">
+          <h4 data-zh="专业" data-en="Discipline">专业</h4>
+          <p data-zh="播音与主持艺术，在读。受过系统的语音、文字与表达训练。"
+             data-en="Broadcasting and Hosting Arts, currently enrolled. Formally trained in speech, writing and delivery.">
+            播音与主持艺术，在读。受过系统的语音、文字与表达训练。</p>
+        </div>
+        <div class="cell">
+          <h4 data-zh="语言" data-en="Languages">语言</h4>
+          <p data-zh="中文（母语，普通话标准）· 英语（可读写工作文档）"
+             data-en="Chinese (native, standard Mandarin) · English (working proficiency in written documents)">
+            中文（母语，普通话标准）· 英语（可读写工作文档）</p>
+        </div>
+        <div class="cell">
+          <h4 data-zh="交付" data-en="Delivery">交付</h4>
+          <p data-zh="按约定截止时间交付，进度可分阶段同步。"
+             data-en="Delivered on agreed deadlines; progress reported in stages.">
+            按约定截止时间交付，进度可分阶段同步。</p>
+        </div>
+        <div class="cell">
+          <h4 data-zh="工作方式" data-en="Working Style">工作方式</h4>
+          <p data-zh="远程协作，时区 UTC+8。任务说明以书面为准。"
+             data-en="Remote collaboration, UTC+8. Written specifications take precedence.">
+            远程协作，时区 UTC+8。任务说明以书面为准。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 流程 -->
+  <section>
+    <div class="wrap">
+      <div class="label" data-zh="协作流程" data-en="Process">协作流程</div>
+      <ul class="steps">
+        <li><span>1</span><div data-zh="接收任务说明与评分标准" data-en="Receiving task guidelines and scoring rubric">接收任务说明与评分标准</div></li>
+        <li><span>2</span><div data-zh="完成试用批次，确认判定口径一致" data-en="Completing a trial batch to align on judgment criteria">完成试用批次，确认判定口径一致</div></li>
+        <li><span>3</span><div data-zh="批量执行，按约定节奏交付" data-en="Batch execution with delivery at agreed intervals">批量执行，按约定节奏交付</div></li>
+        <li><span>4</span><div data-zh="反馈与返工，直至验收通过" data-en="Feedback and rework until acceptance">反馈与返工，直至验收通过</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 联系 -->
+  <div class="contact">
+    <div class="wrap">
+      <h2 data-zh="有项目需要中文能力？" data-en="Need native Chinese on your project?">有项目需要中文能力？</h2>
+      <p data-zh="欢迎发送任务说明，我会在 24 小时内回复。" data-en="Send over the task description — I reply within 24 hours.">
+        欢迎发送任务说明，我会在 24 小时内回复。</p>
+      <a class="mail" href="mailto:hello@example.com">hello@example.com</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;">
+    <span>Rulan Yuan</span>
+    <span data-zh="© 2026 保留所有权利" data-en="© 2026 All rights reserved">© 2026 保留所有权利</span>
+  </div>
+</footer>
+
+<script>
+  var lang = 'zh';
+  function toggleLang(){
+    lang = lang === 'zh' ? 'en' : 'zh';
+    document.getElementById('langBtn').textContent = lang === 'zh' ? 'EN' : '中';
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    var nodes = document.querySelectorAll('[data-zh]');
+    for (var i = 0; i < nodes.length; i++){
+      var t = nodes[i].getAttribute('data-' + lang);
+      if (t) nodes[i].textContent = t;
+    }
+  }
+</script>
+
+</body>
+</html>
